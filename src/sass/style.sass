@@ -1,0 +1,71 @@
+@import './modules/reset'
+@import './modules/flex'
+@import './modules/mediaQuery'
+@import './modules/mixin' 
+
+
+.nav
+    height: 60px
+    width: 100%
+    border: 1px solid #fff
+    padding: 10px
+    background-color: #03a9f4
+    +e('container') 
+        max-width: 1200px
+        margin: auto
+        text-transform: uppercase
+        
+    +e('element')
+        display: inline-block
+        list-style: none
+        border: 1px solid #fff
+    +e('link')
+        display: block
+        text-decoration: none
+        padding: 8px
+        color: #fff
+.container
+    max-width: 1200px
+    margin: 16px auto
+.wrapper
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)
+    border-radius: 4px
+    overflow-x: auto
+
+.table
+    display: table
+    width: 100%
+    margin: auto
+    // text-align: left
+    +e('header')
+        display: table-header-group
+        background-color: black
+        padding: 16px
+        text-align: left
+    +e('box')
+        +m('gray')
+            background-color: rgba(0, 0, 0, 0.04)
+    +e('box-title')
+        display: none
+        +m('visible')
+            display: table-row
+    +e('element')
+        display: table-cell
+        color: #fff
+        padding: 16px
+        text-align: left
+    +e('item')
+        text-align: left
+        padding: 16px
+        border-bottom: 1px solid rgba(224, 224, 224, 1)
+    +e('title')
+        display: table-cell
+        padding: 20px
+        font-size: 30px 
+        color:  #f00
+        background-color: #e5e5e5
+        border-bottom: 1px solid rgba(224, 224, 224, 1)
+    
+
+.invisible
+    display: none
