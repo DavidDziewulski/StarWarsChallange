@@ -12,4 +12,7 @@ Project is created with:
 * WebPack 
 * Yarn
 
-    
+    ## LivePreview
+* https://daviddziewulski.github.io/StarWarsChallange/
+
+![View Page](./viewPage/project.jpg) 
