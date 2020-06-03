@@ -3,14 +3,14 @@ export const request = async () => {
   const getHeros = (args) => {
     heros.push(...args)
   }
-  const response = await fetch(`http://swapi.dev/api/people/?page=1`)
+  const response = await fetch(`https://swapi.dev/api/people/?page=1`)
   if (response.status === 200) {
     const data = await response.json()
     getHeros(data.results)
   } else {
     throw new Error('Unable to fetch the country')
   }
-  const response2 = await fetch(`http://swapi.dev/api/people/?page=2`)
+  const response2 = await fetch(`https://swapi.dev/api/people/?page=1`)
   if (response2.status === 200) {
     const data2 = await response2.json()
     getHeros(data2.results)
@@ -18,21 +18,21 @@ export const request = async () => {
     throw new Error('Unable to fetch the country')
   }
 
-  const response3 = await fetch(`http://swapi.dev/api/people/?page=3`)
+  const response3 = await fetch(`https://swapi.dev/api/people/?page=1`)
   if (response3.status === 200) {
     const data3 = await response3.json()
     getHeros(data3.results)
   } else {
     throw new Error('Unable to fetch the country')
   }
-  const response4 = await fetch(`http://swapi.dev/api/people/?page=4`)
+  const response4 = await fetch(`https://swapi.dev/api/people/?page=1`)
   if (response4.status === 200) {
     const data4 = await response4.json()
     getHeros(data4.results)
   } else {
     throw new Error('Unable to fetch the country')
   }
-  const response5 = await fetch(`http://swapi.dev/api/people/?page=5`)
+  const response5 = await fetch(`https://swapi.dev/api/people/?page=1`)
   if (response5.status === 200) {
     const data5 = await response5.json()
     getHeros(data5.results)
