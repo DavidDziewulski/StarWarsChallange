@@ -1,4 +1,15 @@
-# webpack4
-Sample configuration of Webpack 4
+# Samuraj - Star Worse Challenge
+## Table of contents
+* [Technologies](#technologies)
 
-Rename Babel config file from `babelrc.js` to `.babelrc`
+	
+## Technologies
+Project is created with:
+* HTML5
+* Sass
+* Bem
+* Pure JS
+* WebPack 
+* Yarn
+
+    
