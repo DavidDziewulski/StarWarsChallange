@@ -1,4 +1,4 @@
-# Samuraj - Star Worse Challenge
+# Samuraj - Star Wars Challenge
 ## Table of contents
 * [Technologies](#technologies)
 
