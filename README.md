@@ -15,4 +15,4 @@ Project is created with:
     ## LivePreview
 * https://daviddziewulski.github.io/StarWarsChallange/
 
-![View Page](./viewPage/project.jpg) 
+![View Page](./viewPage/project.png) 
