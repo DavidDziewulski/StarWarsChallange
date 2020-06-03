@@ -1,2 +1,0 @@
-1. Make Request ( Fetch Api) in request.js file.
-2.
