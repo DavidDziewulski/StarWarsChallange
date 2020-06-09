@@ -1,47 +1,73 @@
-let counter = 0
-export const createHero = (item, hero) => {
-  // Add Counter
-  counter++
-  // Add Visible
-  item.classList.add('table__box-title--visible')
-  // // Container
+import { tableBody } from './main.js'
+const createBox = (value) => {
+  const box = document.createElement('th')
+  box.setAttribute('class', 'table__item')
+  box.textContent = value
+  return box
+}
+const createTableBox = (letter) => {
   const tableBox = document.createElement('tr')
-  if (counter % 2 == 0) {
-    tableBox.setAttribute('class', 'table__box table__box--gray')
-  } else {
-    tableBox.setAttribute('class', 'table__box ')
-  }
+  tableBox.setAttribute('class', ` table__box ${letter}letter`)
+  return tableBox
+}
+export const createContainer = (letters) => {
+  const container = []
+  const createBox = letters.forEach((letter) => {
+    const box = document.createElement('tr')
+    box.setAttribute('class', 'table__box-title')
+    box.setAttribute('id', `${letter}`)
+    const title = document.createElement('td')
+    title.setAttribute('class', 'table__title')
+    title.setAttribute('scope', 'row')
+    title.setAttribute('colspan', '6')
+    title.textContent = `${letter}`
+    box.appendChild(title)
+    container.push(box)
+  })
+  return container
+}
+export const sortFirstLetterByName = (heros) => {
+  const firstLettersByName = []
+  const filter = heros.forEach((item) => {
+    const name = item.name
+    const firstLetter = name.charAt(0)
+    firstLettersByName.push(firstLetter)
+  })
+  return [...new Set(firstLettersByName)]
+}
+export const createElementsHeros = (heros) => {
+  const elementsHeros = []
 
-  item.parentNode.insertBefore(tableBox, item.nextSibling)
+  heros.forEach(({ name, eye_color, gender, hair_color, height, mass }) => {
+    const heroName = createBox(name)
+    const heroEyeColor = createBox(eye_color)
+    const heroGender = createBox(gender)
+    const heroHairColor = createBox(hair_color)
+    const heroHeight = createBox(height)
+    const heroMass = createBox(mass)
+    const firstLetter = name.charAt(0)
+    const container = createTableBox(firstLetter)
+    container.append(
+      heroName,
+      heroEyeColor,
+      heroGender,
+      heroHairColor,
+      heroHeight,
+      heroMass
+    )
 
-  // Hero-Name
-  const heroName = document.createElement('th')
-  heroName.setAttribute('class', 'table__item')
-  heroName.textContent = hero.name
-  tableBox.appendChild(heroName)
-  // Hero-Eyes
-  const heroEyes = document.createElement('th')
-  heroEyes.textContent = hero.eye_color
-  heroEyes.setAttribute('class', 'table__item')
-  tableBox.appendChild(heroEyes)
-  // Hero-Gender
-  const heroGender = document.createElement('th')
-  heroGender.textContent = hero.gender
-  heroGender.setAttribute('class', 'table__item')
-  tableBox.appendChild(heroGender)
-  // Hero-HairColor
-  const heroHairColor = document.createElement('th')
-  heroHairColor.textContent = hero.hair_color
-  heroHairColor.setAttribute('class', 'table__item')
-  tableBox.appendChild(heroHairColor)
-  // Hero-Height
-  const heroHeight = document.createElement('th')
-  heroHeight.textContent = hero.height
-  heroHeight.setAttribute('class', 'table__item')
-  tableBox.appendChild(heroHeight)
-  // Hero-Mass
-  const heroMass = document.createElement('th')
-  heroMass.textContent = hero.mass
-  heroMass.setAttribute('class', 'table__item')
-  tableBox.appendChild(heroMass)
+    elementsHeros.push(container)
+  })
+
+  return elementsHeros
+}
+export const addHerosToDom = (container, heros) => {
+  container.forEach((element) => {
+    const search = heros.filter((item) => {
+      const itemClass = item.attributes.class.value
+      return itemClass.includes(`${element.id}letter`)
+    })
+    tableBody.append(element)
+    element.after(...search)
+  })
 }

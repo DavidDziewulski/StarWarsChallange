@@ -43,12 +43,11 @@
         padding: 16px
         text-align: left
     +e('box')
-        +m('gray')
+        &:nth-child(even)
             background-color: rgba(0, 0, 0, 0.04)
     +e('box-title')
-        display: none
-        +m('visible')
-            display: table-row
+        display: table-row
+        
     +e('element')
         display: table-cell
         color: #fff
@@ -67,5 +66,3 @@
         border-bottom: 1px solid rgba(224, 224, 224, 1)
     
 
-.invisible
-    display: none
