@@ -6,6 +6,7 @@ export const getDataHeros = async () => {
   try {
     let loadHeros = await fetch(`https://swapi.dev/api/people/`)
     let loadDataHeros = await loadHeros.json()
+    console.log(loadDataHeros)
     pushHero(loadDataHeros.results)
     do {
       loadHeros = await fetch(`${loadDataHeros.next}`)
@@ -13,7 +14,7 @@ export const getDataHeros = async () => {
       pushHero(loadDataHeros.results)
     } while (loadDataHeros.next)
   } catch (error) {
-    alert(`Unfourtunately We have problem with dowload Heros `)
+    alert(`Unfortunately We have problem with dowload Heros `)
   }
   return heros.sort((a, b) => a.name.localeCompare(b.name))
 }
